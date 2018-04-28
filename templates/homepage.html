@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h4 style="margin-bottom: 5%;text-align: center"><b>CATALOG</b></h4>
+    <style>
+      .card-adjust{
+          height: 420px;
+          overflow: hidden;
+      }
+    </style>
+    <div class="row container">
+      {% with currentBook=0 %}
+      <center class="col s3 h-100" style="margin-top: 30%;"><button class="btn waves-effect" id="prevBtn" style="border-radius: 50%" onclick="{{currentBook}}"><i class="fas fa-caret-left"></i></button></center>
+        <div class="col s6 m6">
+          <div class="card-panel card-adjust">
+            <center><img class="card-image hoverable" src="{{ data['items'][currentBook]['volumeInfo']['imageLinks']['thumbnail'] }}" alt="book"></center>
+            <blockquote class="card-body left" >
+              <h5 class="card-title">
+                <a href="book/{{ currentBook }}"> {{ data['items'][currentBook]["volumeInfo"]["title"] }}</a>
+              </h5>
+                <p href="book/{{ currentBook }}"><i class="fas fa-user"></i> {{ data['items'][currentBook]["volumeInfo"]["authors"][0] }}</p>
+                <p href="book/{{ currentBook }}"><i class="fas fa-tag"></i> {{ data['items'][currentBook]["volumeInfo"]["categories"][0]}}</p>
+            </blockquote>
+        </div>
+      </div>
+      <center class="col s3 h-100" style="margin-top: 30%"><button class="btn waves-effect" id="nextBtn" style="border-radius: 50%" onclick="show()"><i class="fas fa-caret-right"></i></button></center>
+      {% endwith %}
+    </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="row container-fluid" style="margin-top: 5%">
+    <div class="col s2">
+    <img class="book_image img-responsive hoverable" src="{{ data['items'][id]["volumeInfo"]["imageLinks"]["thumbnail"] }}"  alt="image">
+    </div>
+    <div class="col s6">
+        <h4><b>{{ data['items'][id]["volumeInfo"]["title"] }}</b></h4>
+        <i class="flow-text"><i class="fas fa-user"></i> {{ data['items'][id]["volumeInfo"]["authors"][0] }}</i>
+        <i><h6><b>ISBN :</b> {{ data['items'][id]["volumeInfo"]["industryIdentifiers"][0]["identifier"] }}</h6></i>
+        <p class="">{{ data['items'][id]["volumeInfo"]["description"] }}</p>
+        <h6><strong>Page Count:</strong>{{ data['items'][id]["volumeInfo"]["pageCount"] }}</h6>
+    </div>
+    <div class="col s1"></div>
+    <div class="col s3">
+    <form method="POST" action="">
+        {% if not 'NOT_FOR_SALE' in data['items'][id]['saleInfo']['saleability'] %}
+        <h6><i class="fas fa-rupee-sign"></i> {{ data['items'][id]["saleInfo"]["listPrice"]["amount"] }}</h6><br>
+         <div class="input-group">
+            <label>Select Quantity</label>
+            <input type="number" name="comp_select" min="1" max="3" class="validate"></input>
+         </div>
+         <select>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+        <p>Exclusive of all taxes</p>
+        {% if flag == 2 %}
+        <h6 style="color: red">Out of Stock</h6>
+        {% else %}
+        <h6 style="color: green">In Stock</h6>
+        {% endif %}
+            {% if session.logged_in %}
+                <input type="submit" name="addtocart" class="btn-small waves-effect" style="width: 100%; margin-bottom: 5%;" onclick="Materialize.toast("Added to Cart",3000)" value="Add to Cart">
+                {% if flag==1 %}
+                    <div class="alert alert-success" >
+                      <strong>Successfully added to Cart</strong>
+                    </div>
+                {% elif flag == 2 %}
+                    <div class="alert alert-danger">
+                      <strong>Cart Limit Exceeded</strong>
+                    </div>
+                {% endif %}
+                <a href="/cart" name="proceedtocheckout" class="btn btn-small waves-effect" style="width: 100%" value="Proceed to Checkout">Proceed To Checkout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}"><button type="button" name="addtocart" class="btn btn-warning" style="width: 100%; margin-bottom: 5%;" value="Add to Cart"> Add to Cart</button></a>
+                <a href="{{ url_for('login') }}"><button type="button" name="proceedtocheckout" class="btn btn-success" style="width: 100%" value="Proceed to Checkout"><span class="glyphicon glyphicon-plus-sign"></span> Proceed to Checkout</button></a>
+            {% endif %}
+        {% else %}
+        <p>Not available</p>
+        {% endif %}
+
+    </form>
+</div>
+</div>
+
+
+
+{% endblock %}

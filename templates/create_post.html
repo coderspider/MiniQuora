@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body%}
+  <div class="row">
+  	<div class="col s3"></div>
+    <form class="col s6" method="post" action="{{ url_for('create_post') }}">
+    	<br>
+    	<h4 class="center">Create your post here</h4>
+    	<br>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="icon_prefix" type="text" class="validate" name="question">
+          <label for="icon_prefix">Question title</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="icon_prefix" type="text" class="validate" name="content">
+          <label for="icon_prefix">Brief your question</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="icon_prefix" type="text" class="validate" name="tag">
+          <label for="icon_prefix">Tag programming language</label>
+        </div>
+        <center><input class="btn blue-grey darken-3 btn-small" type="submit" value="Share your idea"></input></center>
+      </div>
+    </form>
+    <div class="col s3"></div>
+  </div>
+{% endblock %}

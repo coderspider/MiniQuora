@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MSIT Navigator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet"> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <style>
+    .dp{
+      width: 40%;
+      height: 10px;
+    }
+
+    .item{
+      margin-bottom: 20%;
+    }
+     body {
+      font-family:  Roboto Mono;
+      display: flex;
+      min-height: 2vh;
+      flex-direction: column;
+    }
+    main {
+      flex: 1 0 auto;
+    }
+    .copy{
+      border-width:0;width: auto;height: auto;max-height: 20px;
+    }
+    .fork{
+      border-width:0;width: auto;height: auto;max-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-wrapper blue-grey darken-3 waves-effect">
+    <div class="container">
+        <a class="brand-logo text-uppercase" href="/"><i class="material-icons prefix">polymer</i>MSIT Quora</a>
+      {% if not session.logged_in %}
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/sign_up"><i class="fas fa-user-plus waves-effect"></i> Sign Up</a></li>
+        <li><a href="/login"><i class="fas fa-sign-in-alt waves-effect"></i> Login</a></li>
+      </ul>
+      {% else %}
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>Hi, {{session.log_user}}</li>
+          <!-- <li><a href="/"><i class="fas fa-edit"></i> Create New Post</a></li> -->
+          <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      </ul>
+      {% endif %}
+    </div>
+  </nav>
+    <div class="container" >
+        {% block body %}
+        {% endblock %}
+    </div>
+   <!--  {% block footer %}
+    <footer class="blue-grey darken-3 waves-effect">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text"><b>Mini Quora</b></h5>
+            <p class="grey-text text-lighten-4">This tiny project is developed using Flask <3.</p>
+            <p class="grey-text text-lighten-4">This project is licensed under  <a rel="license" href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img alt="Creative Commons License" class="copy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/AGPLv3_Logo.svg/1200px-AGPLv3_Logo.svg.png" /></a></p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Project Done by:</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="https://joelvinaykumar.github.io">Joel Vinay Kumar</a></li>
+              <a href="https://code.swecha.org/joelvinaykumar/flask-book-shoppe"><img src="https://i1.wp.com/struscode.com/wp-content/uploads/2017/08/head-from-gitlab-logo-small-min.png?resize=256%2C250&ssl=1" class="fork"></a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    {% endblock %}         -->
+</body>
+</html>

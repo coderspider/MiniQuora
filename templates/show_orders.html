@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+	<center><h2 class="italic">Orders Page</h2></center>
+
+	{% if error %}
+	<center>
+		<h5>{{ error }}</h5>
+		<br>
+		<p style="font-size: 50px">🙆</p>
+	</center>
+
+	{% endif %}
+
+{% endblock %}

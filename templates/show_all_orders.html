@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+	<center>
+		<h4 class="italic"><i>Thank you for placing order with us, Joel!</i></h4>
+		<h6><i>Our delivery associate will contact you on 8801156293</i></h6>
+	</center>
+
+
+	{% for each_order in all_orders %}
+
+		<ul class="collection with-header">
+			<li class="collection-header"><h5>Order</h5></li>
+		{% for each in each_order %}
+		  
+		   
+		    <li class="collection-item avatar">
+		      <i class="material-icons circle blue">book</i>
+		      <span class="title">{{ each.book }}</span>
+		      {% if each.quantity==1 %}
+		      		<p>{{ each.quantity }} book<br>
+		      {% elif each.quantity>1 %}
+		      		<p>{{ each.quantity }} books<br>
+		      {% endif %}
+		         <i>₹ {{ each.price }} each</i>
+		      
+		      </p>
+		      <a href="#!" class="secondary-content"><i class="material-icons">trash</i></a>
+		    </li>
+		  
+        {% endfor %} 
+        </ul>
+
+	{% endfor %}
+
+
+	{% if error %}
+	<center>
+		<h5>{{ error }}</h5>
+		<br>
+		<p style="font-size: 150px">🙆</p>
+	</center>
+
+	{% endif %}
+
+{% endblock %}

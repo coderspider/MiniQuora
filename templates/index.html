@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h4 style="margin-bottom: 5%;text-align: center"><b>Posted Questions</b></h4>
+    {% if not session.logged_in %}
+      <p class="center">You need to be logged in to view the complete posts</p>
+    {% endif %}
+    <style>
+      .card-adjust{
+          height: 420px;
+          overflow: hidden;
+      }
+    </style>
+    <div class="row blue-grey darken-3" style="border-radius: 5px ">
+      <div class="col s2"></div>
+      <form class="col s8 center-align" method="post" action="{{ url_for('index') }}">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="icon_prefix" type="text" class="validate" name="question">
+            <label for="icon_prefix">Question title</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="icon_prefix" type="text" class="validate" name="tag">
+            <label for="icon_prefix">Tag programming language</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="icon_prefix" type="text" class="validate" name="content">
+            <label for="icon_prefix">Brief your question</label>
+          </div>
+          <center><input class="btn blue-grey darken-3 btn-small hoverable" type="submit" value="Share your idea"></input></center>
+        </div>
+      </form>
+    </div>
+      <div class="row">
+        <div class="col s2"></div>
+          <div class="col s8">
+          <ul class="collection card">
+            {% for post in posts %}
+              {% if post.authenticated %}
+              <li class="collection-item avatar">
+                <img src="https://image.flaticon.com/icons/svg/17/17004.svg" alt="" class="circle">
+                <span class="title">{{post.title}}</span>
+                <p>by {{post.author}}<br>
+                   <i class="chip">{{post.tag}}</i>
+                </p>
+                {% if session.logged_in %}
+                <a href="{{ url_for('post', post_id=post.id) }}" class="secondary-content"><i class="material-icons">visibility</i></a>
+                {% endif %}
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col s2"></div>
+      </div>
+      </div>
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue-grey darken-3" href="/admin">
+          <i class="large material-icons">account_balance</i>
+        </a>
+      </div>
+    
+{% endblock %}

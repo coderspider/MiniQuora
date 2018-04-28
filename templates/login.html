@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+<br><br><br>
+<center>
+  <h2 class="text-center"><b>LOGIN</b></h2>
+</center>
+{% if error %}
+<p class="error"><strong>Error:</strong> {{ error }}{% endif %}<br>
+    <form action="{{ url_for('login') }}" method="post">
+       <div class="container login-form">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="last_name" type="email" class="validate" name="email">
+                <label for="last_name">Email</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">vpn_key</i>
+                <input id="last_name" type="password" class="validate" name="password">
+                <label for="last_name">Password</label>
+              </div><br>
+              <center><input class="btn blue-grey darken-3 btn-small" type="submit" value="Sign In"></input></center><br><br>
+            </form>     
+          </div>
+        </div>
+      </div>
+    </form>
+   
+<style>
+  body {
+    background: white no-repeat;
+  }
+  .login-form{width:390px;}
+  .login-userinput{margin-bottom: 10px;}
+  .login-button{margin-top:10px;}
+  .login-options{margin-bottom:0px;}
+  .login-forgot{float: right;}
+</style>
+{% endblock %}
+  
