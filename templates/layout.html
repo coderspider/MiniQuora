@@ -46,8 +46,8 @@
       </ul>
       {% else %}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>Hi, {{session.log_user}}</li>
-          <!-- <li><a href="/"><i class="fas fa-edit"></i> Create New Post</a></li> -->
+          <li><a href="/tags"><i class="fas fa-tags"></i> Tags</a></li>
+          <li><a href="/create_post"><i class="fas fa-user-plus"></i> Create Post</a></li>
           <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
       </ul>
       {% endif %}
@@ -57,6 +57,7 @@
         {% block body %}
         {% endblock %}
     </div>
+
    <!--  {% block footer %}
     <footer class="blue-grey darken-3 waves-effect">
       <div class="container">

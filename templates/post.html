@@ -24,9 +24,7 @@
               <label for="icon_prefix2">Post your comment here</label>
             </div>
             <div class="input-field col s2">
-              <button class="btn-flat waves-effect waves-light" type="submit" name="action">comment
-                <i class="material-icons right">send</i>
-              </button>
+              <input class="btn blue-grey darken-3 btn-small hoverable" type="submit" value="Comment"></input>
             </div>
           </form>
         </div>
@@ -37,7 +35,8 @@
     <div class="col s2"></div>
     <div class="col s8">
       <div class="col s2"></div>
-      <ul>
+      <div class="col s8">
+        <ul>
         {% for comm in comments %}
           <li >
             <i style="font-size: 10px ">{{comm.author}} commented on {{comm.date}}</i>
@@ -45,14 +44,19 @@
           </li>
         {% endfor %}
       </ul>
+      </div>
+      
     </div>
   </div>
 
-<div class="fixed-action-btn">
-  <a class="btn-floating btn-large blue-grey darken-3" href="/admin">
-    <i class="large material-icons">account_balance</i>
-  </a>
-</div>
+  {% if session.is_admin %}
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue-grey darken-3" href="/admin">
+      <i class="large material-icons">account_balance</i>
+    </a>
+  </div>
+  {% endif %}
+
       
 <br><br><br></br><br>
 {% endblock %}

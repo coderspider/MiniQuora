@@ -7,21 +7,18 @@
 	<div class="col s8">
 		<ul class="collection card">
             {% for pot in pots %}
-              <li class="collection-item avatar">
-                <img src="https://image.flaticon.com/icons/svg/17/17004.svg" alt="" class="circle">
-                <span class="title">{{pot.title}}</span>
-                <p>by {{pot.author}}<br>
-                   <i class="chip">{{pot.tag}}</i>
-                </p>
-                <form action="/index" method="POST">
-                	<div class="switch">
-					    <label>
-					        <input type="checkbox" name="approve" />
-					        <span>Filled in</span>
-				        </label>
-				  	</div>
-                </form>
-              </li>
+            	{% if not pot.authenticated %}
+            	<li class="collection-item avatar">
+	                <img src="https://image.flaticon.com/icons/svg/17/17004.svg" alt="" class="circle">
+	                <span class="title">{{pot.title}}</span>
+	                <p>by {{pot.author}}<br>
+	                   <i class="chip">{{pot.tag}}</i>
+	                </p>
+	                <form action="/approve/{{pot.id}}" method="POST">
+	                	<input class="btn blue-grey darken-3 btn-small hoverable" type="submit" value="approve"></input>
+	                </form>
+	              </li>
+              	{% endif %}
             {% endfor %}
           </ul>
 	</div>

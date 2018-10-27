@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-    <h4 style="margin-bottom: 5%;text-align: center"><b>Posted Questions</b></h4>
+    <h4 style="margin-bottom: 5%;text-align: center"><b>Share the Questions</b></h4>
     {% if not session.logged_in %}
       <p class="center">You need to be logged in to view the complete posts</p>
     {% endif %}
@@ -14,13 +14,17 @@
       <div class="col s2"></div>
       <form class="col s8 center-align" method="post" action="{{ url_for('index') }}">
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s4">
             <input id="icon_prefix" type="text" class="validate" name="question">
-            <label for="icon_prefix">Question title</label>
+            <label for="icon_prefix">Question</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s4">
             <input id="icon_prefix" type="text" class="validate" name="tag">
-            <label for="icon_prefix">Tag programming language</label>
+            <label for="icon_prefix">Tag language</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="icon_prefix" type="text" class="validate" name="company">
+            <label for="icon_prefix">Tag Comapny</label>
           </div>
           <div class="input-field col s12">
             <input id="icon_prefix" type="text" class="validate" name="content">
@@ -53,10 +57,13 @@
         <div class="col s2"></div>
       </div>
       </div>
-      <div class="fixed-action-btn">
-        <a class="btn-floating btn-large blue-grey darken-3" href="/admin">
-          <i class="large material-icons">account_balance</i>
-        </a>
-      </div>
-    
+      {% if session.logged_in %}
+        {% if session.is_admin %}
+        <div class="fixed-action-btn">
+          <a class="btn-floating btn-large blue-grey darken-3" href="/admin">
+            <i class="large material-icons">account_balance</i>
+          </a>
+        </div>
+        {% endif %}
+      {% endif %}
 {% endblock %}
