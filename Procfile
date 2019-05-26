@@ -1,1 +1,1 @@
-web: gunicorn quora:app
+web: gunicorn hello:app --log-file=-
