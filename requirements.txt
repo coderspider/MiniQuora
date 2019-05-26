@@ -27,8 +27,6 @@ WTForms==1.0.2
 Werkzeug==0.8.3
 blinker==1.2
 decorator==3.4.0
-distribute==0.6.27
-flup
 python-openid==2.2.5
 pytz==2012h
 speaklater==1.3
