@@ -15,7 +15,6 @@ urllib3==1.24.2
 virtualenv==16.6.0
 wcwidth==0.1.7
 webencodings==0.5.1
-Werkzeug==0.12.2
 Babel==0.9.6
 Flask-Babel==0.8
 Flask-Login==0.1.3
