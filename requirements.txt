@@ -1,7 +1,7 @@
 DateTime==4.3
 docutils==0.14
 entrypoints==0.3
-Flask==0.12.4
+Flask==1.0
 Flask-Ask==0.9.8
 Flask-Cors==3.0.7
 future==0.17.1
