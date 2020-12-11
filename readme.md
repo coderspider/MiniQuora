@@ -27,27 +27,28 @@
 
 ## TechStack :computer:
 
+> Language
 <div style="display:flex;">
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
 </div>
-
+>Framework
 <div style="display:flex;">
 <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
 </div>
-
+>Database
 <div style="display:flex;">
 <img src ="https://img.shields.io/badge/sqlite-%2307405e.svg?&style=for-the-badge&logo=sqlite&logoColor=white"/>
 </div>
 
 ## Features :gift:
 
-- :pushpin: For now, it can create, retrive, update,delete posts 
-- :pushpin: Display a homepage with all posts.
-- :pushpin: Redirects to specific post when clicked on post.
-- :pushpin: Can comment and upvote
-- :pushpin: Login page
+:pushpin: For now, it can create, retrive, update,delete posts <br>
+:pushpin: Display a homepage with all posts.<br>
+:pushpin: Redirects to specific post when clicked on post.<br>
+:pushpin: Can comment and upvote<br>
+:pushpin: Login page<br>
 
 ## Installation :computer_mouse:
 
